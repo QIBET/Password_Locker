@@ -19,3 +19,8 @@ class User:
         self.phone_number = phone_number
         self.email = email
         self.password = password
+    def save_user(self):
+        '''
+        Method that saves user
+        '''
+        User.user_List.append(self)
