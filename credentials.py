@@ -23,3 +23,4 @@ class Credentials:
         Method to save credentials
         '''
         Credentials.credential_List.append(self)
+    

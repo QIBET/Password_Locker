@@ -14,7 +14,11 @@ class Testclass (unittest.TestCase):
         '''
         self.new_user = User("Gabriel", "Odhiambo","0724835573","gabriel.odhiambo@ms.com", "Access")#first user object
         self.new_credential = Credentials("facebook","admin","Access") #first credential object
-    
+    def tearDown(self):
+        '''
+        clears the counter after every test
+        '''
+        Credentials.credential_List = []
     def test_create_user(self):
         '''
         Test to check whether a user is created successfully
@@ -55,6 +59,16 @@ class Testclass (unittest.TestCase):
          test_credential = Credentials("gmail", "ghettoboy","Moringa2021")#new credential
          test_credential.save_credentials()
          self.assertEqual(len(Credentials.credential_List),2)
+    def test_delete_credential(self):
+        '''
+        test whether an object is deleted
+        '''
+        self.new_credential.save_credentials()
+        test_credential = Credentials("gmail", "ghettoboy","Moringa2021")#deleting an object
+        test_credential.save_credentials()
+
+        self.new_credential.delete_credential()
+        self.assertEqual(len(Credentials.credential_List),1)
 
         
 if __name__ == '__main__':
