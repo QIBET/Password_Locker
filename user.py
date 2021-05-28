@@ -2,7 +2,7 @@ class User:
     '''
     User class to allows for creation of new instances of users
     '''
-    def __init__(self,first_name,last_name,phone_number,email_address,password):
+    def __init__(self,first_name,last_name,phone_number,email,password):
 
         '''
         __init__ method that helps us define properties for our objects.
@@ -16,5 +16,5 @@ class User:
         self.first_name = first_name
         self.last_name = last_name
         self.phone_number = phone_number
-        self.email = email_address
+        self.email = email
         self.password = password
