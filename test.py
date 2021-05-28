@@ -28,6 +28,15 @@ class Testclass (unittest.TestCase):
         '''
         self.new_user.save_user()
         self.assertEqual(len(User.user_List),1)
+    def test_create_credentials(self):
+        '''
+        test to check whether a new instance of credentials can be created
+        '''
+        self.new_credential = Credentials("facebook","admin","Access")
+
+        self.assertEqual(self.new_credential.account,"facebook")
+        self.assertEqual(self.new_credential.username,"admin")
+        self.assertEqual(self.new_credential.password,"Access")
 
         
 if __name__ == '__main__':
