@@ -2,6 +2,7 @@ class User:
     '''
     User class to allows for creation of new instances of users
     '''
+    user_List = []
     def __init__(self,first_name,last_name,phone_number,email,password):
 
         '''
