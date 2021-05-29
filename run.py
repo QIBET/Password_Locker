@@ -1,6 +1,7 @@
 #!/usr/bin/env python3.6
 from user import User
 from credentials import Credentials 
+
 def create_user(f_name,l_name,phone,email,password):
     '''
     function to create contact
@@ -39,3 +40,17 @@ def display_credential():
     Function to display credentials
     '''
     return Credentials.display_credentials()
+def generate_password():
+    '''
+    Function to generate random password
+    '''
+    Credentials.password_generator()
+def main():
+    '''
+    Initializing the main function
+    '''
+    print("Hello welcome to your Password Locker Account. What is your name?")
+    print('\n')
+    user_name = input()
+    print(f"Hello {user_name}, What would you like to do?")
+    print('\n')
