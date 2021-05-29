@@ -12,3 +12,9 @@ def save_users(user):
     Function to save user instance
     '''
     user.save_user()
+def create_credential(account,username,password):
+    '''
+    Function to create user credentials
+    '''
+    new_credential = Credentials(account,username,password)
+    return new_credential
