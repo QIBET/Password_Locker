@@ -22,4 +22,14 @@ def save_credential(credentials):
     '''
     Function to save credentials
     '''
-    credentials.save_credential(credentials)
+    credentials.save_credentials(credentials)
+def del_credential(credentials):
+    '''
+    Function to implement the delete method
+    '''
+    credentials.delete_credential(credentials)
+def find_credential(account):
+    '''
+    Function to return credential using account
+    '''
+    return Credentials.find_by_account(account)
