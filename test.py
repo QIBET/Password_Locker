@@ -79,6 +79,11 @@ class Testclass (unittest.TestCase):
         
         found_credential = Credentials.find_by_account("Yahoo")
         self.assertEqual(found_credential.username,search_credential.username)
+    def test_display_credentials(self):
+        '''
+        method to display user credentials
+        '''
+        self.assertEqual(Credentials.display_credentials(),Credentials.credential_List)
 
         
 if __name__ == '__main__':
