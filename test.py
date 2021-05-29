@@ -69,6 +69,16 @@ class Testclass (unittest.TestCase):
 
         self.new_credential.delete_credential()
         self.assertEqual(len(Credentials.credential_List),1)
+    def test_find_credential_by_account(self):
+        '''
+        find a credential object using the account
+        '''
+        self.new_credential.save_credentials()
+        search_credential = Credentials("Yahoo","kbenniez", "Nai2021")
+        search_credential.save_credentials()
+        
+        found_credential = Credentials.find_by_account("Yahoo")
+        self.assertEqual(found_credential.username,search_credential.username)
 
         
 if __name__ == '__main__':

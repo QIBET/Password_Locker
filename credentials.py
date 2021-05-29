@@ -23,4 +23,22 @@ class Credentials:
         Method to save credentials
         '''
         Credentials.credential_List.append(self)
+    def delete_credential(self):
+        '''
+        Method to delete an object in the credential list
+        '''
+        Credentials.credential_List.remove(self)
+    @classmethod
+    def find_by_account(cls, account):
+        '''
+        Method that takes in an account and returns a credential that matches the account.
+
+        Args:
+            account: account to search for
+        Returns :
+            Contact of person that matches the number.
+        '''
+        for credential in cls.credential_List:
+            if credential.account == account:
+                return credential
     
