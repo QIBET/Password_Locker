@@ -23,12 +23,12 @@ def save_credential(credentials):
     '''
     Function to save credentials
     '''
-    credentials.save_credentials(credentials)
+    credentials.save_credentials()
 def del_credential(credentials):
     '''
     Function to implement the delete method
     '''
-    credentials.delete_credential(credentials)
+    credentials.delete_credential()
 def find_credential(account):
     '''
     Function to return credential using account
@@ -85,18 +85,18 @@ def main():
 
                 print("Enter Account Name: ")
                 print ('\n')
-                accountName = input()
+                account_Name = input()
 
                 print("Enter Username:")
                 print ('\n')
-                userName = input()
+                user_Name = input()
 
                 print("Enter Password:")
-                credentialId = input()
+                credential_Id = input()
 
-                save_credential(create_credential(accountName,userName,credentialId))
+                save_credential(create_credential(account_Name,user_Name,credential_Id))
                 print ('\n')
-                print(f"Hello {accountName} account has been succesfully created")
+                print(f"Hello {account_Name} account has been succesfully created")
                 print("\n")
              elif short_code == 'dc':
                 if display_credential():
@@ -126,7 +126,7 @@ def main():
                     print("The account isn't existent")
              elif short_code == 'del':
                 print("You are about to delete an Account!!")
-                number = input("Kindly search a contact to delete using a number ")
+                account = input("Kindly search a contact to delete using an account ")
                 if del_credential(find_credential(account)):
                     print("Account deleted successfully")
                 else:
