@@ -34,7 +34,11 @@ def find_credential(account):
     Function to return credential using account
     '''
     return Credentials.find_by_account(account)
-
+def trace_existing_account(account):
+    '''
+    check the existence of an account
+    '''
+    return Credentials.credential_exist(account)
 def display_credential():
     '''
     Function to display credentials
@@ -51,12 +55,13 @@ def main():
     '''
     print("Hello welcome to your Password Locker Account")
     print('\n')
-    shortcode = input("Kindly enter cc to sign up?")
+    shortcode = input("Kindly enter su to sign up?")
     print('\n')
-    while shortcode != "cc":
+    while shortcode != "su":
     
         print("Invali Input, Kindly enter su to sign up ")
         shortcode = input("Kindly enter su to sign up?")
+        print('\n')
     else:
         firstName = input("Enter firstname:")
         print ('\n')
@@ -78,20 +83,20 @@ def main():
                 print('NEW CREDENTIALS')   
                 print("*" * 20)
 
-                print("Account Name: ")
+                print("Enter Account Name: ")
                 print ('\n')
-                account_Name = input()
+                accountName = input()
 
-                print("Username:")
+                print("Enter Username:")
                 print ('\n')
-                user_name = input()
+                userName = input()
 
-                print("Password:")
-                credential_id = input()
+                print("Enter Password:")
+                credentialId = input()
 
-                save_credential(create_credential(account_Name,user_name,credential_id))
+                save_credential(create_credential(accountName,userName,credentialId))
                 print ('\n')
-                print(f"Hello {account_Name} account has been succesfully created")
+                print(f"Hello {accountName} account has been succesfully created")
                 print("\n")
              elif short_code == 'dc':
                 if display_credential():
@@ -104,6 +109,34 @@ def main():
                     print("\n")
                     print("You do not seem to have any credential account yet!!")
                     print("\n")
+             elif short_code == "fc":
+                print("Please enter the account name you would like to search")
+                    
+                search_account_name = input()
+                if trace_existing_account(search_account_name):
+                    found_credential = find_credential(search_account_name)
+                    print("\n")
+                    print(f"Account Name: {found_credential.account}")
+                    print("-" * 10)
+                    print("\n")
+                    print(f"Username:{found_credential.username}")
+                    print("\n")
+                    print(f"Password:  {found_credential.password}")
+                else:
+                    print("The account isn't existent")
+             elif short_code == 'del':
+                print("You are about to delete an Account!!")
+                number = input("Kindly search a contact to delete using a number ")
+                if del_credential(find_credential(account)):
+                    print("Account deleted successfully")
+                else:
+                    print("Kindly select a different option")
+
+             elif short_code == 'ex':
+                print("au revoir")
+                break
+             else:
+                print("Ensure you input a shortcode")
 
 
 

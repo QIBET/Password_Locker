@@ -49,6 +49,19 @@ class Credentials:
         method that returns the credentials in full
         '''
         return cls.credential_List
+    @classmethod
+    def credential_exist(cls,account):
+        '''
+        method that checks the existence of an object
+        arguements:
+            Account name to search if it exists
+        returns:
+            boolean:true or false based on result
+        '''
+        for findaccount in cls.credential_List:
+            if findaccount.account== account:
+                return True
+        return False
 
 password_generated = []
 lettersList=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']

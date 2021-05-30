@@ -79,6 +79,16 @@ class Testclass (unittest.TestCase):
         
         found_credential = Credentials.find_by_account("Yahoo")
         self.assertEqual(found_credential.username,search_credential.username)
+    def test_account_exists(self):
+         '''
+         return a boolean if we cannot find an account
+         '''
+         self.new_credential.save_credentials()
+         test_credential = Credentials("Instagram","qibet","Moringa123")#a new credential
+         test_credential.save_credentials()
+
+         credential_exists = Credentials.credential_exist("Instagram")
+         self.assertTrue(credential_exists)
     def test_display_credentials(self):
         '''
         method to display user credentials
