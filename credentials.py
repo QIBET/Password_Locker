@@ -63,22 +63,22 @@ class Credentials:
                 return True
         return False
 
-password_generated = []
-lettersList=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-'''
-converting lettersList strings to uppercase
-'''
-lettersListUpper = []
 
-for item in lettersList:
-    letter = item.upper()
-    lettersListUpper.append(letter)
 
   
 
     def password_generator():
-        
-        password_generated_sliced = ''
+        password_generated = []
+        lettersList=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+        '''
+        converting lettersList strings to uppercase
+        '''
+        lettersListUpper = []
+
+        for item in lettersList:
+            letter = item.upper()
+            lettersListUpper.append(letter)
+            password_generated_sliced = ''
         for range in lettersList:
             range = randint(0, 100)
             if range%2 == 0:
@@ -91,6 +91,6 @@ for item in lettersList:
         password_generated_sliced = password_generated[0:8:1]
         random_password=(''.join(password_generated_sliced))
 
-        print(f'your password is: {random_password}')
+        print(f'Generated password is: {random_password}')
 
         return random_password

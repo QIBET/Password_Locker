@@ -84,26 +84,35 @@ def main():
                 print("*" * 20)
 
                 print("Enter Account Name: ")
-                print ('\n')
+              
                 account_Name = input()
 
                 print("Enter Username:")
-                print ('\n')
+            
                 user_Name = input()
 
-                print("Enter Password:")
-                credential_Id = input()
+                print("Do you want to use a system generated Password? Type Yes or No: ")
+                password = input()
+                if password == 'yes':
+                    credential_Id = generate_password()
+                else:
+                    print("Enter Password:")
+                    credential_Id = input()
 
                 save_credential(create_credential(account_Name,user_Name,credential_Id))
                 print ('\n')
-                print(f"Hello {account_Name} account has been succesfully created")
+                print(f"Hello, your {account_Name} account has been succesfully created")
                 print("\n")
              elif short_code == 'dc':
                 if display_credential():
                     print("Here is a list of all your Credentials")
                     print('\n')
                     for credential in display_credential():
-                        print(f"{credential.account} {credential.username}  {credential.password}")
+                        print(f"Account Name: {credential.account}")
+                        print("-" * 10)
+                        print(f"Username: {credential.username}")
+                        print("-" * 10)
+                        print(f"Password: {credential.password}")
                     print("\n")
                 else:
                     print("\n")
@@ -126,7 +135,7 @@ def main():
                     print("The account isn't existent")
              elif short_code == 'del':
                 print("You are about to delete an Account!!")
-                account = input("Kindly search a contact to delete using an account ")
+                account = input("Kindly search a credential to delete using an account ")
                 if del_credential(find_credential(account)):
                     print("Account deleted successfully")
                 else:
